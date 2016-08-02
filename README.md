@@ -29,7 +29,16 @@ This particular directive was added to work with D3 elements where I wanted to l
 
 In the given example, we fetch some given enumeration values and the coverage of them from a source. This was originally used to query sample names used in the particular geography.
 ```
-   
+   // simply copy pasting code from D3 logic. Your usage might differ
+   nodeEnter.select('text')
+            .attr('custom-tooltip', '')
+            .attr('source', scope.source);
+   $compile(element.contents())(scope);
+```
+
+Alternatively in *HTML*,
+```
+    <li custom-tooltip source={{elem.source}}> {{elem.location}} </li>
 ```
 
 ## Dependencies
