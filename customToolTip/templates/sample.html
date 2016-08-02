@@ -1,0 +1,26 @@
+<div ng-if="!hasException">
+    <div ng-if="!items">
+        <img src="/images/wip.gif"> Please wait, Fetching data..
+    </div>
+    <div ng-if="!!items">
+        <div ng-if="!!coverage">
+            <div><progressbar type="info" value="coverage"><span style="color: black">&nbsp;&nbsp;Coverage:&nbsp;{{coverage}}&#37;</span></progressbar></div>
+            <ul class="list-group" ng-show="!!items.list">
+                <li class="list-group-item" ng-repeat="entry in items.list">
+                    <span class="badge" tooltip="Count of items with this value">{{entry.count}}</span>
+                    <span tooltip="Sample value">{{entry.value}}</span>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="!coverage">
+            <p>Zero coverage. No values found. </p>
+        </div>
+    </div>
+</div>
+<div ng-if="hasException">
+    <p>Unable to find valid coverage. Two possibilities:</p>
+    <ul>
+        <li><em>Service is down</em>, try again later or reach out to us. </li>
+        <li><em>Values are not yet computed</em>, Try again after sometime</li>
+    </ul>
+</div>
